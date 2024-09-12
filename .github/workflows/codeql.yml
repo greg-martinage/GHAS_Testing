@@ -16,6 +16,8 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  release:
+    types: [ "[Cc]reated" , "[Ee]dited", "[Pp]ublished" ]    
   schedule:
     - cron: '18 10 * * 1'
 
