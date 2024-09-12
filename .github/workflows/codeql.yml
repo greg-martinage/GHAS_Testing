@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
     inputs:
       libraryVersion:
-        description: 'Library Version'
+        description: 'Targeted Scan Version'
         required: false
         default: ''
   push:
