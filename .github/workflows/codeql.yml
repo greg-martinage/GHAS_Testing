@@ -13,6 +13,11 @@ name: "CodeQL Advanced"
 
 on:
   workflow_dispatch:
+    inputs:
+      libraryVersion:
+        description: 'Library Version'
+        required: false
+        default: ''
   push:
     branches: [ "main" ]
   pull_request:
