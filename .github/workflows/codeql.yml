@@ -9,23 +9,17 @@
 # the `language` matrix defined below to confirm you have the correct set of
 # supported CodeQL languages.
 #
-name: "CodeQL Advanced"
+name: "CodeQL Advanced - Release"
 
 on:
-  workflow_dispatch:
-    inputs:
-      libraryVersion:
-        description: 'Targeted Scan Version'
-        required: false
-        default: ''
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
   release:
     types: [ "[Cc]reated" , "[Ee]dited", "[Pp]ublished" ]    
-  schedule:
-    - cron: '18 10 * * 1'
+#   schedule:
+#     - cron: '18 10 * * 1'
 
 jobs:
   analyze:
