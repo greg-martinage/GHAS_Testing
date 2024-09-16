@@ -12,10 +12,10 @@
 name: "CodeQL Advanced - Release"
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+#  push:
+#    branches: [ "main" ]
+#  pull_request:
+#    branches: [ "main" ]
   release:
     types: [ "[Cc]reated" , "[Ee]dited", "[Pp]ublished" ]    
 #   schedule:
