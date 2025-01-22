@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "User Search";
+}
+
+<h2>User Search</h2>
+
+<form asp-action="Search" method="post">
+    <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" class="form-control" id="username" name="username" />
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+@if (ViewBag.Username != null)
+{
+    <h3>Results:</h3>
+    <p>Username: @ViewBag.Username</p>
+    <p>Email: @ViewBag.Email</p>
+}
