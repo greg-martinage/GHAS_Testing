@@ -18,14 +18,14 @@ on:
         description: 'Targeted Scan Version'
         required: false
         default: ''
-  push:
-    branches: [ "main" ]
+#  push:
+#    branches: [ "develop" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "develop" ]
   release:
     types: [ "[Cc]reated" , "[Ee]dited", "[Pp]ublished" ]    
-  schedule:
-    - cron: '18 10 * * 1'
+#  schedule:
+#    - cron: '18 10 * * 1'
 
 jobs:
   analyze:
