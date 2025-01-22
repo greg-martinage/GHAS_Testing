@@ -9,17 +9,15 @@
 # the `language` matrix defined below to confirm you have the correct set of
 # supported CodeQL languages.
 #
-name: "CodeQL Advanced - Release"
+name: "CodeQL Advanced Tag Specific"
 
 on:
-#  push:
-#    branches: [ "main" ]
-#  pull_request:
-#    branches: [ "main" ]
-  release:
-    types: [ "[Cc]reated" , "[Ee]dited", "[Pp]ublished" ]    
-#   schedule:
-#     - cron: '18 10 * * 1'
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to scan'
+        required: true
+        default: 'v1.0.0'
 
 jobs:
   analyze:

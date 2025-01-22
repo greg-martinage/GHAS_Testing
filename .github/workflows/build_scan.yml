@@ -1,0 +1,68 @@
+name: Build and CodeQL Scan
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build-and-scan:
+    name: Build and CodeQL Scan
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0  # Fetch all history for all tags and branches
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build project
+      run: npm run build
+
+    - name: Create release
+      id: create_release
+      uses: actions/create-release@v1
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: javascript
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+      with:
+        category: 'custom-codeql'
+
+    - name: Run custom CodeQL query
+      run: |
+        codeql database create my-database --language=javascript --source-root=.
+        echo 'import javascript
+
+        from FunctionCall call, string s
+        where
+          call.getArgument(0) = s and
+          s.matches("%password%") or
+          s.matches("%secret%") or
+          s.matches("%key%")
+        select call, "This function call contains a hardcoded credential: " + s' > find-hardcoded-credentials.ql
+        codeql database analyze my-database find-hardcoded-credentials.ql --format=sarif-latest --output=results.sarif
+
+    - name: Upload CodeQL results
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: results.sarif
