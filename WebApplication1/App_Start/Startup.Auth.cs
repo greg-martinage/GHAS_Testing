@@ -33,6 +33,7 @@ namespace WebApplication1
                     {
                         SecurityTokenValidated = (context) =>
                         {
+                            string password = "password";
                             string name = context.AuthenticationTicket.Identity.FindFirst("preferred_username").Value;
                             context.AuthenticationTicket.Identity.AddClaim(new Claim(ClaimTypes.Name, name, string.Empty));
                             return System.Threading.Tasks.Task.FromResult(0);
