@@ -36,22 +36,20 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
         ref: ${{ github.event.inputs.release_number }}
-
-    - name: Install .NET SDK
-      run: |
-        curl -L https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.sh -o dotnet-install.sh
-        chmod +x dotnet-install.sh
-        ./dotnet-install.sh --version 8.0.12 --install-dir ./.dotnet
-
-    - name: Restore dependencies
-      run: ./.dotnet/dotnet restore
-
-    - name: Build the project
-      run: ./.dotnet/dotnet build --configuration Release
-
+        dotnet-version: '6.0.35'
+        
+    - name: Install dependencies
+      run: dotnet restore
+      
+    - name: Build
+      run: dotnet build --configuration Release
+      
+    - name: Test with the dotnet CLI
+      run: dotnet test
+        
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
       with:
