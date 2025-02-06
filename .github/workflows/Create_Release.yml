@@ -40,6 +40,17 @@ jobs:
       with:
         ref: ${{ github.event.inputs.release_number }}
 
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: '6.0.x'  # Specify the .NET version
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build the project
+      run: dotnet build --configuration Release
+
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
       with:
