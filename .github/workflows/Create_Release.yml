@@ -43,7 +43,7 @@ jobs:
     - name: Set up .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: '6.0.x'  # Specify the .NET version
+        dotnet-version: '4.8.1'  # Specify the .NET version
 
     - name: Restore dependencies
       run: dotnet restore
