@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Tag to scan'
+        description: 'Release Tag'
         required: true
         default: 'v1.0.0'
   push:
@@ -29,6 +29,8 @@ jobs:
         body: "Release created for tag ${{ github.ref }}"
         draft: false
         prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   run_codeql:
     name: Run CodeQL Analysis
@@ -41,11 +43,14 @@ jobs:
       with:
         ref: ${{ github.ref }}
 
-     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v3
+      uses: github/codeql-action/init@v2
       with:
-        languages: 'csharp,javascript,typescript'  
+        languages: 'csharp,javascript,typescript'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
