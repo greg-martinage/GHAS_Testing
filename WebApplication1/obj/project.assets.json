@@ -1,0 +1,155 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.8.1": {
+      "MSBuild.Microsoft.VisualStudio.Web.targets/14.0.0.3": {
+        "type": "package",
+        "build": {
+          "build/MSBuild.Microsoft.VisualStudio.Web.targets.props": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.8.1/win": {
+      "MSBuild.Microsoft.VisualStudio.Web.targets/14.0.0.3": {
+        "type": "package",
+        "build": {
+          "build/MSBuild.Microsoft.VisualStudio.Web.targets.props": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.8.1/win-arm64": {
+      "MSBuild.Microsoft.VisualStudio.Web.targets/14.0.0.3": {
+        "type": "package",
+        "build": {
+          "build/MSBuild.Microsoft.VisualStudio.Web.targets.props": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.8.1/win-x64": {
+      "MSBuild.Microsoft.VisualStudio.Web.targets/14.0.0.3": {
+        "type": "package",
+        "build": {
+          "build/MSBuild.Microsoft.VisualStudio.Web.targets.props": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.8.1/win-x86": {
+      "MSBuild.Microsoft.VisualStudio.Web.targets/14.0.0.3": {
+        "type": "package",
+        "build": {
+          "build/MSBuild.Microsoft.VisualStudio.Web.targets.props": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MSBuild.Microsoft.VisualStudio.Web.targets/14.0.0.3": {
+      "sha512": "38FjZFXUvPG9azsfJzC3UiW6+ogg2jPQBZxtAUV4ybIowiUuHgDS9M2EAeFPBivqiUgALqXh1BoAHSmTiT52gA==",
+      "type": "package",
+      "path": "msbuild.microsoft.visualstudio.web.targets/14.0.0.3",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "build/MSBuild.Microsoft.VisualStudio.Web.targets.props",
+        "msbuild.microsoft.visualstudio.web.targets.14.0.0.3.nupkg.sha512",
+        "msbuild.microsoft.visualstudio.web.targets.nuspec",
+        "tools/VSToolsPath/Web/CollectFiles/Microsoft.Web.Publishing.AllFilesInProjectFolder.targets",
+        "tools/VSToolsPath/Web/CollectFiles/Microsoft.Web.Publishing.AllFilesInTheProject.targets",
+        "tools/VSToolsPath/Web/CollectFiles/Microsoft.Web.Publishing.OnlyFilesToRunTheApp.targets",
+        "tools/VSToolsPath/Web/Deploy/Microsoft.Web.Publishing.Deploy.FPSE.targets",
+        "tools/VSToolsPath/Web/Deploy/Microsoft.Web.Publishing.Deploy.FTP.targets",
+        "tools/VSToolsPath/Web/Deploy/Microsoft.Web.Publishing.Deploy.FileSystem.targets",
+        "tools/VSToolsPath/Web/Deploy/Microsoft.Web.Publishing.Deploy.MsDeploy.targets",
+        "tools/VSToolsPath/Web/Deploy/Microsoft.Web.Publishing.Deploy.Package.targets",
+        "tools/VSToolsPath/Web/Deploy/Microsoft.Web.Publishing.MsDeploy.Common.targets",
+        "tools/VSToolsPath/Web/Microsoft.DNX.Publishing.targets",
+        "tools/VSToolsPath/Web/Microsoft.Web.Publishing.Tasks.dll",
+        "tools/VSToolsPath/Web/Microsoft.Web.Publishing.targets",
+        "tools/VSToolsPath/Web/Microsoft.Web.Publishing/ImportAfter/Microsoft.Web.AzureAD.Publishing.targets",
+        "tools/VSToolsPath/Web/Microsoft.Web.XmlTransform.dll",
+        "tools/VSToolsPath/Web/Microsoft.WebSite.Publishing.targets",
+        "tools/VSToolsPath/Web/Powershell/1.0.1/default-publish.ps1",
+        "tools/VSToolsPath/Web/Powershell/1.0.1/filesystem.pubxml",
+        "tools/VSToolsPath/Web/Powershell/1.0.1/package.pubxml",
+        "tools/VSToolsPath/Web/Powershell/1.0.1/publish-module.psm1",
+        "tools/VSToolsPath/Web/Transform/Microsoft.Web.Publishing.AspNetCompileMerge.targets",
+        "tools/VSToolsPath/WebApplications/Microsoft.WebApplication.Build.Tasks.Dll",
+        "tools/VSToolsPath/WebApplications/Microsoft.WebApplication.targets"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.8.1": [
+      "MSBuild.Microsoft.VisualStudio.Web.targets >= 14.0.0.3"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\gmartinage\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\gmartinage\\Source\\Repos\\greg-martinage\\GHAS_Testing\\WebApplication1\\WebApplication1.csproj",
+      "projectName": "WebApplication1",
+      "projectPath": "C:\\Users\\gmartinage\\Source\\Repos\\greg-martinage\\GHAS_Testing\\WebApplication1\\WebApplication1.csproj",
+      "packagesPath": "C:\\Users\\gmartinage\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gmartinage\\Source\\Repos\\greg-martinage\\GHAS_Testing\\WebApplication1\\obj\\",
+      "projectStyle": "PackageReference",
+      "skipContentFileWrite": true,
+      "UsingMicrosoftNETSdk": false,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\gmartinage\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net481"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.pkg.github.com/DeltaDataSoftware/index.json": {}
+      },
+      "frameworks": {
+        "net481": {
+          "projectReferences": {}
+        }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "net481": {
+        "dependencies": {
+          "MSBuild.Microsoft.VisualStudio.Web.targets": {
+            "target": "Package",
+            "version": "[14.0.0.3, )"
+          }
+        }
+      }
+    },
+    "runtimes": {
+      "win": {
+        "#import": []
+      },
+      "win-arm64": {
+        "#import": []
+      },
+      "win-x64": {
+        "#import": []
+      },
+      "win-x86": {
+        "#import": []
+      }
+    }
+  }
+}

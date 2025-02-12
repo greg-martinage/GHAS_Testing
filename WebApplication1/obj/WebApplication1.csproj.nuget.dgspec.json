@@ -1,0 +1,71 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\gmartinage\\Source\\Repos\\greg-martinage\\GHAS_Testing\\WebApplication1\\WebApplication1.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\gmartinage\\Source\\Repos\\greg-martinage\\GHAS_Testing\\WebApplication1\\WebApplication1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\gmartinage\\Source\\Repos\\greg-martinage\\GHAS_Testing\\WebApplication1\\WebApplication1.csproj",
+        "projectName": "WebApplication1",
+        "projectPath": "C:\\Users\\gmartinage\\Source\\Repos\\greg-martinage\\GHAS_Testing\\WebApplication1\\WebApplication1.csproj",
+        "packagesPath": "C:\\Users\\gmartinage\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\gmartinage\\Source\\Repos\\greg-martinage\\GHAS_Testing\\WebApplication1\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "UsingMicrosoftNETSdk": false,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\gmartinage\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net481"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/DeltaDataSoftware/index.json": {}
+        },
+        "frameworks": {
+          "net481": {
+            "projectReferences": {}
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net481": {
+          "dependencies": {
+            "MSBuild.Microsoft.VisualStudio.Web.targets": {
+              "target": "Package",
+              "version": "[14.0.0.3, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-arm64": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

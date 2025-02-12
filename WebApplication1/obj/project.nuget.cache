@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "D0kU0823WGc=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\gmartinage\\Source\\Repos\\greg-martinage\\GHAS_Testing\\WebApplication1\\WebApplication1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gmartinage\\.nuget\\packages\\msbuild.microsoft.visualstudio.web.targets\\14.0.0.3\\msbuild.microsoft.visualstudio.web.targets.14.0.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
