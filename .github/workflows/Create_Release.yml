@@ -40,6 +40,9 @@ jobs:
       with:
         ref: ${{ github.event.inputs.release_number }}
 
+    - name: Enable debug logging
+      run: echo "##[debug] Debug logging enabled"
+
     - name: Install .NET Framework Developer Pack
       run: |
           $InstallPath = "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vs_installer.exe"
