@@ -40,15 +40,14 @@ jobs:
       with:
         ref: ${{ github.event.inputs.release_number }}
 
-        
-    - name: Install dependencies
-      run: dotnet restore
-      
-    - name: Build
-      run: dotnet build --configuration Release
-      
-    - name: Test with the dotnet CLI
-      run: dotnet test
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.5
+    - name: Restore Packages
+      run: nuget restore MySolution.sln
+    - name: Build solution
+      run: msbuild WebApplication1.sln -t:rebuild -property:Configuration=Release
         
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
