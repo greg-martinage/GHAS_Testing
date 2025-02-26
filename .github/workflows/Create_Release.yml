@@ -38,7 +38,7 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        ref: ${{ github.event.inputs.release_number }}
+        ref: 'refs/tags/${{ github.event.inputs.release_number }}'
 
     - name: Enable debug logging
       run: echo "##[debug] Debug logging enabled"
