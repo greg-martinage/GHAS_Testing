@@ -1,0 +1,78 @@
+name: Run CodeQL on Existing Specific Tag
+on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Existing tag to scan (e.g., v1.0.0)'
+        required: true
+        default: 'v1.0.0'
+
+jobs:
+  run_codeql:
+    name: Run CodeQL Analysis on Tag
+    runs-on: windows-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        ref: 'refs/tags/${{ github.event.inputs.tag_name }}'
+        fetch-depth: 0  # Fetch all history for proper tag handling
+    
+    - name: Verify tag exists
+      shell: bash
+      run: |
+        if ! git show-ref --tags | grep -q "refs/tags/${{ github.event.inputs.tag_name }}"; then
+          echo "::error::The specified tag '${{ github.event.inputs.tag_name }}' does not exist in the repository"
+          exit 1
+        fi
+        echo "Found tag: ${{ github.event.inputs.tag_name }}"
+        git rev-parse --verify "refs/tags/${{ github.event.inputs.tag_name }}"
+    
+    - name: Enable debug logging
+      run: echo "##[debug] Debug logging enabled"
+    
+    - name: Install .NET Framework Developer Pack
+      run: |
+          $InstallPath = "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vs_installer.exe"
+          $Arguments = '/c', "$InstallPath", 'modify', '--installPath', "`"C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise`"", '--add', 'Microsoft.Net.Component.4.8.1.SDK', '--quiet', '--norestart', '--nocache'
+          Start-Process -FilePath cmd.exe -ArgumentList $Arguments -Wait -PassThru -WindowStyle Hidden
+    
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+      
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.5
+      
+    - name: Restore Packages
+      run: nuget restore WebApplication1.sln
+      
+    - name: Build solution
+      run: msbuild WebApplication1.sln -t:rebuild -property:Configuration=Release
+        
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v3
+      with:
+        languages: 'javascript,typescript'
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Get commit SHA for tag
+      id: get-tag-sha
+      shell: bash
+      run: |
+        TAG_SHA=$(git rev-parse "refs/tags/${{ github.event.inputs.tag_name }}")
+        echo "SHA=$TAG_SHA" >> $GITHUB_OUTPUT
+    
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v3
+      with:
+        category: "/language:javascript,typescript"
+        ref: 'refs/tags/${{ github.event.inputs.tag_name }}'
+        sha: ${{ steps.get-tag-sha.outputs.SHA }}  # Use the exact SHA of the tag
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Add analysis metadata
+      run: |
+        echo "CodeQL analysis completed for tag: ${{ github.event.inputs.tag_name }}"
+        echo "Analysis timestamp: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
