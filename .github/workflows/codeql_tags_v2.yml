@@ -12,13 +12,13 @@
 name: "CodeQL Advanced Tags v2"
 
 on:
-  push:
-    branches: [ "develop", "[Dd]eploy/*", "[Mm]ain", "[Qq]a/*", "[Rr]elease/*" ]
-    tags: [ 'v*' ]  # This will run the workflow when pushing tags that start with 'v'
+#  push:
+#    branches: [ "develop", "[Dd]eploy/*", "[Mm]ain", "[Qq]a/*", "[Rr]elease/*" ]
+#    tags: [ 'v*' ]  # This will run the workflow when pushing tags that start with 'v'
   pull_request:
     branches: [ "develop", "[Dd]eploy/*", "[Mm]ain", "[Qq]a/*", "[Rr]elease/*" ]
-  release:
-    types: [created, edited, published]  # Correct syntax for release types
+#  release:
+#    types: [created, edited, published]  # Correct syntax for release types
 #  schedule:
 #    - cron: "0 0 * * *"
 
