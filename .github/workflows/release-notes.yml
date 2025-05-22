@@ -1,0 +1,44 @@
+name: Generate Release Notes
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release_notes:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for git commands
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      
+      - name: Install dependencies
+        run: pip install jinja2 requests
+      
+      - name: Generate Release Notes
+        run: python scripts/generate_release_notes.py
+      
+      - name: Upload Release Notes
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-notes
+          path: "*_ReleaseNotes.md"
+      
+      - name: Create GitHub Release (Optional)
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body_path: "*_ReleaseNotes.md"
+          draft: false
+          prerelease: false
